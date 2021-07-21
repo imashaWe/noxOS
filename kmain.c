@@ -1,5 +1,6 @@
-int kmain() 
+/* The C function */
+int sum_of_three(int arg1, int arg2, int arg3)
 {
-	printf("Hello wold");
-	return 0;
+    	return arg1 + arg2 + arg3;
 }
+
