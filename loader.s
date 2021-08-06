@@ -19,9 +19,9 @@
 
     loader:                         ; the loader label (defined as entry point in linker script)
         mov esp, kernel_stack + KERNEL_STACK_SIZE       ; point esp to the start of the
-                                                                                        ;stack (end of memory area)
-        ; The assembly code
-        extern kmain   ; the function sum_of_three is defined elsewhere
+                                                        ;stack (end of memory area)
+        ; The assembly code for call c function
+        extern kmain     ; the function kmain is defined elsewhere
         call kmain       ; call the function, the result will be in eax
 
     .loop:
