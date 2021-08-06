@@ -1,5 +1,5 @@
 #include "drivers/frame_builder.h"
-//#include "drivers/serial_write.h"
+#include "drivers/serial_write.h"
 
 int kmain()
 {
@@ -10,7 +10,7 @@ int kmain()
     	fb_write(0, heading, len);
     
     	//serial writing
-    	//serial_write(0x3F8, heading, len);
+    	serial_write(0x3F8, heading, len);
     	
 	return 0;
 }
