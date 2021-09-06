@@ -4,6 +4,7 @@
 #include "interrupts.h"
 #include "keyboard.h"
 #include "multiboot.h"
+#include "paging.h"
 
 int run_user_mode(unsigned int ebx)
 {
@@ -49,6 +50,8 @@ int kmain(unsigned int ebx)
 	/* call user mode */
 	run_user_mode(ebx);
     	
+    	/* install paging */
+    	init_paging();
 	return 0;
 }
 
