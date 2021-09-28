@@ -7,6 +7,8 @@
 
 #define SEGMENT_CODE_TYPE 0x9A
 #define SEGMENT_DATA_TYPE 0x92
+#define USER_SEGMENT_CODE_TYPE 0xFA
+#define USER_SEGMENT_DATA_TYPE 0xF2
 
 /*
  * Flags part of `limit_and_flags`.
@@ -54,6 +56,8 @@ void segments_install_gdt()
 	// See http://wiki.osdev.org/GDT_Tutorial
 	segments_init_descriptor(1, SEGMENT_BASE, SEGMENT_LIMIT, SEGMENT_CODE_TYPE, SEGMENT_FLAGS_PART);
 	segments_init_descriptor(2, SEGMENT_BASE, SEGMENT_LIMIT, SEGMENT_DATA_TYPE, SEGMENT_FLAGS_PART);
+	segments_init_descriptor(3, 3, SEGMENT_LIMIT, USER_SEGMENT_CODE_TYPE, SEGMENT_FLAGS_PART); 			// User Code segment
+  	segments_init_descriptor(4, SEGMENT_BASE, SEGMENT_LIMIT, USER_SEGMENT_DATA_TYPE, SEGMENT_FLAGS_PART); 	// User Data segment
 
 	segments_load_gdt(*gdt_ptr);
 	segments_load_registers();
